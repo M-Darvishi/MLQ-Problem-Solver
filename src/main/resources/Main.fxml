@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.MainFxController">
+   <children>
+      <Accordion layoutX="45.0" layoutY="100.0" />
+    <TitledPane animated="false" layoutX="61.0" layoutY="-60.0" text="untitled 1" />
+      <TabPane layoutX="14.0" layoutY="6.0" prefHeight="680.0" prefWidth="338.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Queue Configuration">
+            <content>
+              <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="338.0">
+                     <children>
+                        <TableView fx:id="queueTable" layoutX="22.0" layoutY="28.0" prefHeight="466.0" prefWidth="298.0">
+                          <columns>
+                            <TableColumn fx:id="queuePriority" prefWidth="75.0" text="Priority" />
+                            <TableColumn fx:id="queueAlgo" prefWidth="75.0" text="Algorithm" />
+                              <TableColumn fx:id="queueSlice" prefWidth="72.79998779296875" text="Time Slice" />
+                              <TableColumn fx:id="queuePolicy" prefWidth="77.5999755859375" text="Policy" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="addQueueBtn" layoutX="22.0" layoutY="543.0" mnemonicParsing="false" onAction="#openAddQueueWindow" text="Add Queue" textAlignment="CENTER" />
+                        <Button  fx:id="resetQueuesBtn" layoutX="253.0" layoutY="542.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" onAction="#resetQueues"  text="Reset" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Processes Table">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="254.0">
+                     <children>
+                        <TableView fx:id="processTable" layoutX="10.0" layoutY="23.0" prefHeight="542.0" prefWidth="318.0">
+                          <columns>
+                            <TableColumn fx:id="processName" prefWidth="83.99999618530273" text="Process Name" />
+                            <TableColumn fx:id="processArrival" prefWidth="75.99996948242188" text="Arrival Time" />
+                              <TableColumn fx:id="processServiceTime" prefWidth="77.59996032714844" text="Service Time" />
+                              <TableColumn fx:id="processPriority" prefWidth="60.800048828125" text="Priority" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="addProcessBtn" layoutX="14.0" layoutY="591.0" mnemonicParsing="false" onAction="#openAddProcessWindow" text="Add Process" textAlignment="CENTER" />
+                        <Button fx:id="resetProcessBtn" layoutX="265.0" layoutY="590.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" onAction="#resetProcesses" text="Reset" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+       <Button fx:id="runBtn" layoutX="900.0" layoutY="310.0" mnemonicParsing="false" onAction="#runAction" prefHeight="36.0" prefWidth="58.0" text="Run" />
+      <ScrollPane fx:id="scrollPane_N1" layoutX="370.0" layoutY="368.0" prefHeight="211.0" prefWidth="598.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <Canvas fx:id="queueCanvas" height="180.0" layoutX="16.0" layoutY="10.0" width="568.0" />
+                  <Label layoutX="256.0" layoutY="86.0" text="Coming soon . . ." />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="paintQueuesBtn" layoutX="815.0" layoutY="592.0" mnemonicParsing="false" onAction="#paintQueues" prefHeight="36.0" prefWidth="143.0" text="Run Priority Queues" />
+      <StackPane layoutX="363.0" layoutY="78.0" prefHeight="222.0" prefWidth="612.0">
+         <children>
+            <ScrollPane fx:id="scrollPane_N0" prefHeight="211.0" prefWidth="598.0">
+               <content>
+                  <AnchorPane fx:id="mlqPage" minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <Canvas fx:id="ganttCanvas" height="161.0" layoutX="14.0" layoutY="5.0" width="585.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+             <VBox fx:id="avgVBox" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="90.0" prefWidth="177.0" spacing="10" style="-fx-padding:25 ">
+               <children>
+                  <Label fx:id="awtLabel" text="" />
+                  <Label fx:id="attLabel" text="" />
+               </children></VBox>
+             <AnchorPane fx:id="mlfqPage" minHeight="0.0" minWidth="0.0">
+                 <children>
+                     <Label layoutX="261.0" layoutY="102.0" text="Coming soon . . ." />
+                 </children>
+             </AnchorPane>
+         </children>
+      </StackPane>
+      <RadioButton fx:id="mlqRadio" layoutX="371.0" layoutY="310.0" mnemonicParsing="false" text="MLQ" />
+      <RadioButton fx:id="mlfqRadio" layoutX="371.0" layoutY="336.0" mnemonicParsing="false" text="MLFQ" />
+   </children>
+</AnchorPane>

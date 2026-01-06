@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="200" prefWidth="300" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.ProcessFxController">
+   <children>
+      <Label layoutX="19.0" layoutY="14.0" text="Process Name:" />
+      <Label layoutX="19.0" layoutY="63.0" text="Arrival Time:" />
+      <Label layoutX="18.0" layoutY="110.0" text="Service Time:" />
+      <Button layoutX="21.0" layoutY="165.0" mnemonicParsing="false" onAction="#addProcess" text="Add" />
+      <TextField fx:id="nameEntry" layoutX="19.0" layoutY="34.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="arrivalEntry" layoutX="20.0" layoutY="81.0" prefHeight="26.0" prefWidth="124.0" />
+      <TextField fx:id="serviceEntry" layoutX="19.0" layoutY="128.0" prefHeight="26.0" prefWidth="124.0" />
+      <Text fx:id="errorMsg" fill="RED" layoutX="150.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="124.0" />
+      <TextField fx:id="priorityEntry" layoutX="150.0" layoutY="128.0" prefHeight="26.0" prefWidth="124.0" />
+      <Label layoutX="150.0" layoutY="110.0" text="Priority:" />
+   </children>
+</AnchorPane>
